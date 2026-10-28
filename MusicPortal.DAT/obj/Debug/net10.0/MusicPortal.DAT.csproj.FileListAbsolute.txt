@@ -1,0 +1,13 @@
+C:\Users\User\source\repos\MusicPortal2\MusicPortal.DAT\bin\Debug\net10.0\MusicPortal.DAT.deps.json
+C:\Users\User\source\repos\MusicPortal2\MusicPortal.DAT\bin\Debug\net10.0\MusicPortal.DAT.dll
+C:\Users\User\source\repos\MusicPortal2\MusicPortal.DAT\bin\Debug\net10.0\MusicPortal.DAT.pdb
+C:\Users\User\source\repos\MusicPortal2\MusicPortal.DAT\obj\Debug\net10.0\MusicPortal.DAT.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\MusicPortal2\MusicPortal.DAT\obj\Debug\net10.0\MusicPortal.DAT.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\source\repos\MusicPortal2\MusicPortal.DAT\obj\Debug\net10.0\MusicPortal.DAT.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\MusicPortal2\MusicPortal.DAT\obj\Debug\net10.0\MusicPortal.DAT.AssemblyInfo.cs
+C:\Users\User\source\repos\MusicPortal2\MusicPortal.DAT\obj\Debug\net10.0\MusicPortal.DAT.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\MusicPortal2\MusicPortal.DAT\obj\Debug\net10.0\MusicPortal.DAT.dll
+C:\Users\User\source\repos\MusicPortal2\MusicPortal.DAT\obj\Debug\net10.0\refint\MusicPortal.DAT.dll
+C:\Users\User\source\repos\MusicPortal2\MusicPortal.DAT\obj\Debug\net10.0\MusicPortal.DAT.pdb
+C:\Users\User\source\repos\MusicPortal2\MusicPortal.DAT\obj\Debug\net10.0\ref\MusicPortal.DAT.dll
+C:\Users\User\source\repos\MusicPortal2\MusicPortal.DAT\obj\Debug\net10.0\MusicPor.365A5489.Up2Date

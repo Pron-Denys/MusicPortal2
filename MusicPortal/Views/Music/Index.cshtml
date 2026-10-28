@@ -1,0 +1,74 @@
+﻿@model MusicPortal.Models.IndexViewModel
+@{
+    Layout = "_Layout";
+    int nextPage = Model.Page!.Page + 1;
+    int previosPage = Model.Page.Page - 1;
+}
+<div class="musics">
+    @if (Context.Session.GetString("IsAdmin") != null || Context.Session.GetString("IsActivated") != null)
+    {
+        <div class="btn-add-song-conteiner">
+            <a asp-controller="Music" asp-action="Create" class="btn-add-song">+ @Resources.Resource.AddSong</a>
+        </div>
+    }
+    <data-filtering action="Index" filter="@Model.Filter"></data-filtering>
+    <div class="card-music" style="justify-content: start;">
+        <sort-header action="Index" sort-order="@Model.Sort!.Name" name-music="@Model.Filter!.Name" id-genre="@Model.Filter.SelectedGenre.Id">@Resources.Resource.Name</sort-header>
+        <sort-header action="Index" sort-order="@Model.Sort!.Songwriter" name-music="@Model.Filter!.Name" id-genre="@Model.Filter.SelectedGenre.Id">@Resources.Resource.Songwriter</sort-header>
+    </div>
+    @if (Model.Musics.Count() != 0)
+    {
+        @foreach (var music in Model.Musics)
+        {
+            @if (Context.Session.GetString("IsAdmin") == "true")
+            {
+                <div class="card-music">
+                <img src="~/Poster/@music.Poster" />
+                <p>@music.Name</p>
+                <p>@music.Songwriter</p>
+                <audio controls>
+                    <source src="~/Music/@music.Audio" type="audio/ogg"/>
+                </audio>
+                <a asp-action="Update" asp-route-id="@music.Id" class="btn btn-blue">@Resources.Resource.Edit</a>
+                <a asp-action="Delete" asp-route-id="@music.Id" class="btn btn-red">@Resources.Resource.Delete</a>
+                <a href="/Download/@music.Audio" class="download-btn text">
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                 </span>
+                    @Resources.Resource.Download
+                </a>
+            </div>
+            }
+            else
+            {
+                <div class="card-music">
+                <img src="~/Poster/@music.Poster" />
+                <p>@music.Name</p>
+                <p>@music.Songwriter</p>
+                <audio controls>
+                    <source src="~/Music/@music.Audio" type="audio/ogg"/>
+                </audio>
+                <a href="/Download/@music.Audio" class="download-btn text">
+                    <span class="icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                    </span>
+                    @Resources.Resource.Download
+                </a>
+            </div>
+            }
+        }
+    }
+    else
+    {
+        <h2 class="not-found-h2">@Resources.Resource.NotFound!</h2>
+    }
+    <pagination action="Index" pagination="@Model.Page" property-url-music="@Model.Filter.Name!" property-url-genre="@Model.Filter.SelectedGenre.Id" property-url-page="@Model.Page.Page" property-url-sort="@Model.Sort.Current"></pagination>
+</div>
