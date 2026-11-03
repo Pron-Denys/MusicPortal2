@@ -30,3 +30,4 @@ C:\Users\User\source\repos\MusicPortal2\MusicPortal.BLL\obj\Debug\net10.0\en\Mus
 C:\Users\User\source\repos\MusicPortal2\MusicPortal.BLL\obj\Debug\net10.0\fr\MusicPortal.BLL.resources.dll
 C:\Users\User\source\repos\MusicPortal2\MusicPortal.BLL\obj\Debug\net10.0\it\MusicPortal.BLL.resources.dll
 C:\Users\User\source\repos\MusicPortal2\MusicPortal.BLL\obj\Debug\net10.0\uk\MusicPortal.BLL.resources.dll
+C:\Users\User\source\repos\MusicPortal2\MusicPortal.BLL\obj\Debug\net10.0\MusicPortal.BLL.sourcelink.json

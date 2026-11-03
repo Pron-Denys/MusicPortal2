@@ -10,6 +10,7 @@ builder.Services.AddUnitOfWork();
 builder.Services.AddMusicService();
 builder.Services.AddGenreService();
 builder.Services.AddUserService();
+builder.Services.AddSongwriterService();
 builder.Services.AddPasswordHashing();
 builder.Services.AddReadLanguage();
 builder.Services.AddSession();

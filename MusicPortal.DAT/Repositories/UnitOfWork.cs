@@ -5,6 +5,8 @@ using MusicPortal.DAT.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using MusicPortal.DAL.Repositories;
+using MusicPortal.DAL.Entities;
 
 namespace MusicPortal.DAT.Repositories
 {
@@ -15,10 +17,13 @@ namespace MusicPortal.DAT.Repositories
         private MusicRepository? MusicRepository;
         private UserRepository? UserRepository;
 
+        private SongwriterRepository? SongwriterRepository;
+
         public UnitOfWork(MusicPortalContext database)
         {
             Database = database;
             if (GenreRepository == null) GenreRepository = new GenreRepository(database);
+            if (SongwriterRepository == null) SongwriterRepository = new SongwriterRepository(database);
             if (MusicRepository == null) MusicRepository = new MusicRepository(database);
             if (UserRepository == null) UserRepository = new UserRepository(database);
         }
@@ -35,6 +40,11 @@ namespace MusicPortal.DAT.Repositories
         public IRepository<User> Users
         {
             get { return UserRepository!; }
+        }
+
+        public IRepository<Songwriter> Songwriters
+        {
+            get { return SongwriterRepository!; }
         }
 
         public void Save()

@@ -85,6 +85,9 @@
                             <li class="nav-item">
                                 <a asp-controller="Genre" asp-action="Index"><i class="fa-solid fa-layer-group"></i>@Resources.Resource.Genres</a>
                             </li>
+                            <li class="nav-item">
+                                <a asp-controller="Songwriter" asp-action="Index"><i class="fa-solid fa-layer-group"></i>Виконавці</a>
+                            </li>
                             @if (Context.Session.GetString("IsAdmin") != null)
                             {
                                 <li class="nav-item">

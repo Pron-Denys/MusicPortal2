@@ -10,7 +10,7 @@ namespace MusicPortal.Controllers
     using MusicPortal.Models;
     
     [Culture]
-    public class MusicController(IMusicService musicService, IGenreService genreService,IWebHostEnvironment app) : Controller
+    public class MusicController(IMusicService musicService, IGenreService genreService, ISongwriterService songwriterService,IWebHostEnvironment app) : Controller
     {
         public async Task<IActionResult> Index(string? nameMusic, int idGenre, int page = 1, SortState sortorder = SortState.NameAsc)
         {
@@ -47,6 +47,7 @@ namespace MusicPortal.Controllers
         {
             HttpContext.Session.SetString("path", Request.Path);
             ViewBag.Genres = await genreService.GetListGenresAsync();
+            ViewBag.Songwriters = await songwriterService.GetListSongwritersAsync();
             return View();
         }
         [HttpPost]
@@ -57,10 +58,12 @@ namespace MusicPortal.Controllers
             if (!ModelState.IsValid || fileAudio == null || filePoster == null)
             {
                 ViewBag.Genres = await genreService.GetListGenresAsync();
+                ViewBag.Songwriters = await songwriterService.GetListSongwritersAsync();
                 if (fileAudio == null) ModelState.AddModelError("Audio", Resources.Resource.ChooseSong);
                 if (filePoster == null) ModelState.AddModelError("Poster", Resources.Resource.ChoosePoster);
                 return View(musicModel);
             }
+            SongwriterDTO songwriter = songwriterService.GetSongwriter(musicModel.Songwriter!);
             GenreDTO genre = genreService.GetGenreFirhstOrDefault(musicModel.Genre!);
             var pathAudio = Path.Combine(app.WebRootPath, "Music", fileAudio!.FileName);
             FileStream stream = new FileStream(pathAudio, FileMode.Create);
@@ -70,7 +73,7 @@ namespace MusicPortal.Controllers
             stream = new FileStream(pathPoster, FileMode.Create);
             filePoster!.CopyTo(stream);
             stream.Dispose();
-            var music = new MusicDTO { Name = musicModel.Name, Songwriter = musicModel.Songwriter, Audio = fileAudio.FileName, Poster = filePoster.FileName, Genre = genre.Name, Year = musicModel.Year };
+            var music = new MusicDTO { Name = musicModel.Name, Songwriter = songwriter.Name, Audio = fileAudio.FileName, Poster = filePoster.FileName, Genre = genre.Name, Year = musicModel.Year };
             musicService.AddMusic(music);
             return RedirectToAction("Index", "Music");
         }
@@ -87,6 +90,7 @@ namespace MusicPortal.Controllers
             if (music == null) return RedirectToAction("Index", "Music");
             MusicModel model = new MusicModel { Id = music.Id, Name = music.Name, Genre = music?.Genre, Songwriter = music?.Songwriter, Year = music!.Year };
             ViewBag.Genres = await genreService.GetListGenresAsync();
+            ViewBag.Songwriters = await songwriterService.GetListSongwritersAsync();
             return View(model);
         }
 
@@ -98,6 +102,7 @@ namespace MusicPortal.Controllers
             if (musicModel.Songwriter == null || musicModel.Year == 0 || musicModel.Genre == null || musicModel.Name == null)
             {
                 ViewBag.Genres = await genreService.GetListGenresAsync();
+                ViewBag.Songwriters = await songwriterService.GetListSongwritersAsync();
                 return View(musicModel);
             }
             string audio = null!;
@@ -116,6 +121,7 @@ namespace MusicPortal.Controllers
             }
             if (music == null) return RedirectToAction("Index", "Music");
             GenreDTO genre = genreService.GetGenreFirhstOrDefault(musicModel.Genre);
+            SongwriterDTO songwriter = songwriterService.GetSongwriter(musicModel.Songwriter);
             if (fileAudio != null)
             {
                 var pathAudio = Path.Combine(app.WebRootPath, "Music", fileAudio!.FileName);
@@ -135,6 +141,7 @@ namespace MusicPortal.Controllers
             music.Name = musicModel.Name;
             music.Year = musicModel.Year;
             music.Genre = genre.Name;
+            music.Songwriter = songwriter.Name;
             musicService.UpdateMusic(music);
             return RedirectToAction("Index", "Music");
         }

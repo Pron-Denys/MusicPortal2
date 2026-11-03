@@ -14,7 +14,7 @@ namespace MusicPortal.DAT.Repositories
     {
         public async Task<IEnumerable<Music>> GetListAsync()
         {
-            var musics = _db.Musics.Include(m => m.Genre).ToList();
+            var musics = _db.Musics.Include(m => m.Genre).Include(m => m.Songwriter).ToList();
             return musics;
         }
 

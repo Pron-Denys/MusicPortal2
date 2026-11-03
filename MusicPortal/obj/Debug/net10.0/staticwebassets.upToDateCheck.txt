@@ -63,6 +63,7 @@ C:\Users\User\source\repos\MusicPortal2\MusicPortal\wwwroot\lib\bootstrap\dist\c
 C:\Users\User\source\repos\MusicPortal2\MusicPortal\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map
 wwwroot\Genre Poster\1000_F_121610081_AKCbXBEmDh2Y1ygpoaoTm044jJUoPLaP.jpg
 wwwroot\Genre Poster\artworks-P997Ad7zJ7EDAzDu-kzzTog-t500x500.jpg
+wwwroot\Genre Poster\flower-in-a-hurricane-feat_-tame-impala-sza-king-gizzard-the-lizard-wizard-from-gtavi-cover.webp
 wwwroot\Genre Poster\il_300x300.8505552902_r8di.webp
 wwwroot\Genre Poster\posters-hiphop-dance.jpg
 wwwroot\Genre Poster\raf,360x360,075,t,fafafa_ca443f4786.u1.jpg
@@ -123,6 +124,7 @@ wwwroot\Poster\flower-in-a-hurricane-feat_-tame-impala-sza-king-gizzard-the-liza
 wwwroot\Poster\gims-emprise.webp
 wwwroot\Poster\gims-monica.webp
 wwwroot\Poster\gims-overton.webp
+wwwroot\Poster\il_300x300.8505552902_r8di.webp
 wwwroot\Poster\impulsive-cover.webp
 wwwroot\Poster\jazzy-depart.webp
 wwwroot\Poster\kler-tisjacha-pisen.webp
@@ -142,6 +144,12 @@ wwwroot\Poster\the-haunt-until-i-die.webp
 wwwroot\Poster\toc-toc-cover.webp
 wwwroot\Poster\voila-voodoo.webp
 wwwroot\Poster\young-nudy-who-dat-is.webp
+wwwroot\Songwriter Photo\Carla's_Dreams_in_Feb_2018.jpg
+wwwroot\Songwriter Photo\flower-in-a-hurricane-feat_-tame-impala-sza-king-gizzard-the-lizard-wizard-from-gtavi-cover.webp
+wwwroot\Songwriter Photo\image_7240_1_large.jpg
+wwwroot\Songwriter Photo\images (1).jpeg
+wwwroot\Songwriter Photo\images.jpeg
+wwwroot\Songwriter Photo\impulsive-cover.webp
 wwwroot\css\MusicPortalStyle.css
 wwwroot\css\site.css
 wwwroot\favicon.ico

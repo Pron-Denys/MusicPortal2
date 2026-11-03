@@ -9,6 +9,7 @@
   <ItemGroup>
     <Folder Include="wwwroot\Music\" />
     <Folder Include="wwwroot\Genre Poster\" />
+    <Folder Include="wwwroot\Songwriter Photo\" />
     <Folder Include="wwwroot\Poster\" />
   </ItemGroup>
 

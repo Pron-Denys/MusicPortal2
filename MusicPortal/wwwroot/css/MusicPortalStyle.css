@@ -761,3 +761,7 @@ footer {
   transform: translateY(0);
   box-shadow: 0 2px 8px rgba(0, 255, 135, 0.2);
 }
+
+.photo {
+    border-radius: 50%;
+}

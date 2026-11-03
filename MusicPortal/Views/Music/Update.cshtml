@@ -63,11 +63,6 @@
             <input asp-for="Year"></input>
             <span asp-validation-for="Year" class="error"></span>
         </div>
-        <div class="input-group input-div">
-            <label asp-for="Songwriter" style="color:white;"></label>
-            <input asp-for="Songwriter"></input>
-            <span asp-validation-for="Songwriter" class="error"></span>
-        </div>
          <div class="input-group input-div">
             <label asp-for="Audio" style="color:white;"></label>
             <input type="file" name="fileAudio"></input>
@@ -79,13 +74,27 @@
             <span asp-validation-for="Poster" class="error"></span>
         </div>
          <div class="input-group">
+            <label asp-for="Genre" style="color:white;"></label><br />
+        </div>
+        <div>
             <select size="1" asp-for="Genre">
                 @foreach (var genre in ViewBag.Genres)
                 {
                     <option value="@genre.Name">@genre.Name</option>        
                 }
             </select>
+        <div/>
+        <div class="input-group">
+            <label asp-for="Songwriter" style="color:white;"></label>
         </div>
+        <div>
+            <select size="1" asp-for="Songwriter">
+                @foreach (var songwriter in ViewBag.Songwriters)
+                {
+                    <option value="@songwriter.Name">@songwriter.Name</option>        
+                }
+            </select>
+        <div/>
         <input type="submit" value="@Resources.Resource.Save" class="submit-btn" />
         <a asp-controller="Music" asp-action="Index" class="modern-btn">@Resources.Resource.Return</a>
     </form>

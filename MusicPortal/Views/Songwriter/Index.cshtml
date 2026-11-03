@@ -1,0 +1,28 @@
+﻿@model IEnumerable<MusicPortal.BLL.DTO.SongwriterDTO>
+@{
+    Layout = "_Layout";
+}
+@if (Context.Session.GetString("IsAdmin") != null)
+{
+    <div class="btn-add-song-conteiner add-genre">
+        <a asp-action="Create" class="btn-add-song">+ Додати виконавця</a>
+    </div>
+}
+<div class="genre-show">
+    @foreach (var songwriter in Model)
+    {
+        <div class="card-genre">
+            <div>
+                <img class="photo" width="200px" src="~/Songwriter Photo/@songwriter.Photo">
+            </div>
+            <p>@songwriter.Name</p>
+            @if (Context.Session.GetString("IsAdmin") != null)
+            {
+                <div>
+                    <a asp-action="Update" asp-route-id="@songwriter.Id" class="btn btn-blue">@Resources.Resource.Edit</a>
+                    <a asp-action="Delete" asp-route-id="@songwriter.Id" class="btn btn-red">@Resources.Resource.Delete</a>
+                </div>
+            }
+        </div>
+    }
+</div>
